@@ -1,0 +1,19 @@
+# sum two bin on 0,1 to bits 2,3
+1 1 # initial tape
+$A: # state A
+0 -> 0 1r B # if 0 under head then write 0 and move head one to right and move to state B
+1 -> 1 1r C
+$B:
+0 -> 0 2r Zero
+1 -> 1 2r One
+$C:
+0 -> 1 2r One
+1 -> 1 1r D
+$D:
+* -> 1 1r Zero
+$Zero:
+* -> 0 0r HALT
+$One:
+* -> 1 0r HALT
+$HALT: # End of program State
+HALT # End of Program Instruction
